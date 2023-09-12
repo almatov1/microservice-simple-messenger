@@ -1,3 +1,15 @@
 [submodule "module/discovery"]
 	path = module/discovery
 	url = https://github.com/almatov1/simple-messenger-discovery.git
+[submodule "module/client"]
+	path = module/client
+	url = https://github.com/almatov1/simple-messenger-client.git
+[submodule "module/message"]
+	path = module/message
+	url = https://github.com/almatov1/simple-messenger-message.git
+[submodule "module/controller"]
+	path = module/controller
+	url = https://github.com/almatov1/simple-messenger-controller.git
+[submodule "module/gateway"]
+	path = module/gateway
+	url = https://github.com/almatov1/simple-messenger-gateway.git

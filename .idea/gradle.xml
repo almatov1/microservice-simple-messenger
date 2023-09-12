@@ -12,10 +12,50 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/message" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/message" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/module/client" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/module/client" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/module/controller" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/module/controller" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/module/discovery" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/module/discovery" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/module/gateway" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/module/gateway" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/module/user" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/module/user" />
           </set>
         </option>
       </GradleProjectSettings>
