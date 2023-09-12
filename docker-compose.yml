@@ -20,7 +20,7 @@ services:
     image:
       quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}
     container_name: keycloak
-    platform: linux/amd64
+    platform: linux/arm64
     ports:
       - ${KEYCLOAK_PORT}
     environment:
@@ -28,8 +28,8 @@ services:
       KC_DB_URL: jdbc:postgresql://postgres/${POSTGRESQL_DB_FOR_CLIENT}
       KC_DB_USERNAME: ${POSTGRESQL_USER}
       KC_DB_PASSWORD: ${POSTGRESQL_PASS}
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: password
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
     command:
       - start-dev
   zookeeper:
