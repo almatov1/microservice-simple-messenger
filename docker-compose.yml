@@ -1,0 +1,49 @@
+version: '3'
+
+volumes:
+  postgres_data:
+    driver: local
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    volumes:
+      - ./docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - ${POSTGRESQL_PORT}
+    environment:
+      POSTGRES_MULTIPLE_DATABASES: ${POSTGRESQL_DB_FOR_MESSAGE}, ${POSTGRESQL_DB_FOR_CLIENT}
+      POSTGRES_USER: ${POSTGRESQL_USER}
+      POSTGRES_PASSWORD: ${POSTGRESQL_PASS}
+  keycloak:
+    image:
+      quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}
+    container_name: keycloak
+    platform: linux/amd64
+    ports:
+      - ${KEYCLOAK_PORT}
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres/${POSTGRESQL_DB_FOR_CLIENT}
+      KC_DB_USERNAME: ${POSTGRESQL_USER}
+      KC_DB_PASSWORD: ${POSTGRESQL_PASS}
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: password
+    command:
+      - start-dev
+  zookeeper:
+    platform: linux/amd64
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    ports:
+      - ${ZOOKEEPER_PORT}
+  kafka:
+    platform: linux/arm64
+    image: wurstmeister/kafka
+    container_name: kafka
+    ports:
+      - ${KAFKA_PORT}
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:${ZOOKEEPER_INNER_PORT}
