@@ -32,13 +32,8 @@ Business functions:
     - [ ] Get roles (admin)
     - [ ] Get clients (admin)
     - [ ] Delete client by uuid (admin)
-2. Message (5):
-    - [ ] Post message (user, admin)
-    - [ ] Delete one message (user, admin)
-    - [ ] Delete one message by uuid (admin)
-    - [ ] Delete all message by mail (admin)
-    - [ ] Get messages by mail (user, admin)
-3. Controller (3):
+2. Message (2):
+    - [X] Post message (user, admin)
+    - [ ] Delete message (admin)
+3. Controller (1):
     - [ ] Delete message by uuid (admin)
-    - [ ] Delete client + messages (admin)
-    - [ ] Post realm role to client (admin)
