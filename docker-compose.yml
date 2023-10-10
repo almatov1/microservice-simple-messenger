@@ -13,7 +13,7 @@ services:
     ports:
       - ${POSTGRESQL_PORT}
     environment:
-      POSTGRES_MULTIPLE_DATABASES: ${POSTGRESQL_DB_FOR_MESSAGE}, ${POSTGRESQL_DB_FOR_CLIENT}
+      POSTGRES_MULTIPLE_DATABASES: ${POSTGRESQL_DB_FOR_MESSAGE}, ${POSTGRESQL_DB_FOR_CLIENT}, ${POSTGRESQL_DB_FOR_CONTROLLER}
       POSTGRES_USER: ${POSTGRESQL_USER}
       POSTGRES_PASSWORD: ${POSTGRESQL_PASS}
   keycloak:
@@ -32,6 +32,9 @@ services:
       KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
     command:
       - start-dev
+      - --import-realm
+    volumes:
+      - ./docker/keycloak/realm-development.json:/opt/keycloak/data/import/realm.json
   zookeeper:
     platform: linux/amd64
     image: wurstmeister/zookeeper
