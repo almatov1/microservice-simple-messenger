@@ -50,3 +50,4 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: localhost
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:${ZOOKEEPER_INNER_PORT}
+      KAFKA_CREATE_TOPICS: messageTopic:1:1
