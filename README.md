@@ -36,4 +36,4 @@ Business functions:
     - [X] Post message (user, admin)
     - [ ] Delete message (admin)
 3. Controller (1):
-    - [ ] Delete message by uuid (admin)
+    - [X] Delete message by uuid (admin)
