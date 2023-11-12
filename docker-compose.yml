@@ -35,19 +35,12 @@ services:
       - --import-realm
     volumes:
       - ./docker/keycloak/realm-development.json:/opt/keycloak/data/import/realm.json
-  zookeeper:
-    platform: linux/amd64
-    image: wurstmeister/zookeeper
-    container_name: zookeeper
+  rabbitmq:
+    image: "rabbitmq:3.13-rc-management"
+    container_name: rabbitmq
     ports:
-      - ${ZOOKEEPER_PORT}
-  kafka:
-    platform: linux/arm64
-    image: wurstmeister/kafka
-    container_name: kafka
-    ports:
-      - ${KAFKA_PORT}
+      - "5672:5672"
+      - "15672:15672"
     environment:
-      KAFKA_ADVERTISED_HOST_NAME: localhost
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:${ZOOKEEPER_INNER_PORT}
-      KAFKA_CREATE_TOPICS: messageTopic:1:1
+      RABBITMQ_DEFAULT_USER: root
+      RABBITMQ_DEFAULT_PASS: password
